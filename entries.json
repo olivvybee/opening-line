@@ -128,7 +128,67 @@
   {
     "movie": "The Tigger Movie",
     "year": 2000,
-    "openingLine": "Now, this might be The room of any small boy... but it happens to belong to a boy named Christopher Robin.",
+    "openingLine": "Now, this might be the room of any small boy... but it happens to belong to a boy named Christopher Robin.",
     "url": "https://www.themoviedb.org/movie/15655"
+  },
+  {
+    "movie": "Because I Said So",
+    "year": 2007,
+    "openingLine": "Look at you.",
+    "url": "https://www.themoviedb.org/movie/1257"
+  },
+  {
+    "movie": "Rango",
+    "year": 2011,
+    "openingLine": "We are gathered here today to immortalise in song the life and untimely death of a great legend.",
+    "url": "https://www.themoviedb.org/movie/44896"
+  },
+  {
+    "movie": "Dolphin Tale",
+    "year": 2011,
+    "openingLine": "Come on!",
+    "url": "https://www.themoviedb.org/movie/62837"
+  },
+  {
+    "movie": "The Night Before",
+    "year": 2015,
+    "openingLine": "Here's a little story I'd like to tell about three best friends and their first Noel.",
+    "url": "https://www.themoviedb.org/movie/296100"
+  },
+  {
+    "movie": "Zookeeper",
+    "year": 2011,
+    "openingLine": "- It's beautiful, right? - It's great.",
+    "url": "https://www.themoviedb.org/movie/38317"
+  },
+  {
+    "movie": "The Lost World: Jurassic Park",
+    "year": 1997,
+    "openingLine": "- Thank you so much. - That looks fabulous.",
+    "url": "https://www.themoviedb.org/movie/330"
+  },
+  {
+    "movie": "Copycat",
+    "year": 1995,
+    "openingLine": "The screams of the victim deaden his pain.",
+    "url": "https://www.themoviedb.org/movie/1710"
+  },
+  {
+    "movie": "But I'm a Cheerleader",
+    "year": 2000,
+    "openingLine": "(Skip movie)",
+    "url": "https://www.themoviedb.org/movie/20770"
+  },
+  {
+    "movie": "The Twilight Saga: Eclipse",
+    "year": 2010,
+    "openingLine": "(Skip movie)",
+    "url": "https://www.themoviedb.org/movie/24021"
+  },
+  {
+    "movie": "Mickey, Donald, Goofy: The Three Musketeers",
+    "year": 2004,
+    "openingLine": "Set dresser to the stage.",
+    "url": "https://www.themoviedb.org/movie/21385"
   }
 ]
