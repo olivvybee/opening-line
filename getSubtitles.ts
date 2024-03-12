@@ -74,6 +74,9 @@ const getSubtitleFileId = async (tmdbId: number) => {
     tmdb_id: tmdbId.toString(),
     languages: 'en',
     foreign_parts_only: 'exclude',
+    trusted_sources: 'only',
+    order_by: 'download_count',
+    order_direction: 'desc',
   });
   const url = `${OPEN_SUBTITLES_BASE_URL}/subtitles?${query.toString()}`;
 
