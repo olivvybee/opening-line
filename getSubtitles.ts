@@ -117,10 +117,14 @@ const getOpeningLine = async (subtitles: Line[]) => {
       name: 'lines',
       message: 'Choose one or more lines:',
       type: 'checkbox',
-      choices,
+      choices: [...choices, '(Skip movie)'],
       loop: false,
     },
   ]);
+
+  if (lines === '(Skip movie)') {
+    return null;
+  }
 
   return lines.join(' ');
 };
@@ -155,6 +159,8 @@ const run = async () => {
   const openingLine = await getOpeningLine(subtitles);
   if (openingLine) {
     createEntry(movie, openingLine);
+    markMovieAsProcessed(data, movie);
+  } else if (openingLine === null) {
     markMovieAsProcessed(data, movie);
   }
 };
