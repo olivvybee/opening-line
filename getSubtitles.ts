@@ -108,9 +108,10 @@ const downloadSubtitles = async (fileId: number): Promise<Line[]> => {
 
 const getOpeningLine = async (subtitles: Line[]) => {
   const choices = subtitles
-    .slice(0, 15)
     .map((line) => line.text)
-    .map((text) => text.replace(/\n/g, ' ').replace(/<\w>/g, ''));
+    .filter((text) => !(text.startsWith('[') && text.endsWith(']')))
+    .slice(0, 15)
+    .map((text) => text.replace(/\n/g, ' ').replace(/<.+?>/g, ''));
 
   const { lines } = await inquirer.prompt([
     {
