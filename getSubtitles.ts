@@ -142,27 +142,29 @@ const createEntry = (movie: MovieData, openingLine: string) => {
 };
 
 const run = async () => {
-  const data = loadMovieData();
-  const movie = getUnprocessedMovie(data);
+  while (true) {
+    const data = loadMovieData();
+    const movie = getUnprocessedMovie(data);
 
-  console.log(`Fetching subtitles for ${movie.name} (${movie.year})...`);
+    console.log(`Fetching subtitles for ${movie.name} (${movie.year})...`);
 
-  const subtitleFileId = await getSubtitleFileId(movie.id);
-  if (!subtitleFileId) {
-    throw new Error('No subtitles found for movie');
-  }
+    const subtitleFileId = await getSubtitleFileId(movie.id);
+    if (!subtitleFileId) {
+      throw new Error('No subtitles found for movie');
+    }
 
-  const subtitles = await downloadSubtitles(subtitleFileId);
-  if (!subtitles || !subtitles.length) {
-    throw new Error('Failed to download subtitles');
-  }
+    const subtitles = await downloadSubtitles(subtitleFileId);
+    if (!subtitles || !subtitles.length) {
+      throw new Error('Failed to download subtitles');
+    }
 
-  const openingLine = await getOpeningLine(subtitles);
-  if (openingLine) {
-    createEntry(movie, openingLine);
-    markMovieAsProcessed(data, movie);
-  } else if (openingLine === null) {
-    markMovieAsProcessed(data, movie);
+    const openingLine = await getOpeningLine(subtitles);
+    if (openingLine) {
+      createEntry(movie, openingLine);
+      markMovieAsProcessed(data, movie);
+    } else if (openingLine === null) {
+      markMovieAsProcessed(data, movie);
+    }
   }
 };
 
