@@ -2,6 +2,8 @@ import path from 'path';
 import fs from 'fs';
 import inquirer from 'inquirer';
 import { config as loadEnv } from 'dotenv';
+import { MovieData } from './types';
+import { loadMovieData, saveMovieData } from './scriptHelpers';
 
 const TMDB_API_URL = 'https://api.themoviedb.org/3/discover/movie';
 
@@ -27,13 +29,6 @@ interface TMDBResponse {
   results: TMDBMovie[];
   total_pages: number;
   total_results: number;
-}
-
-interface MovieData {
-  id: number;
-  name: string;
-  year: number;
-  processed: boolean;
 }
 
 const getReleaseYear = async () => {
@@ -96,13 +91,7 @@ const getMoviesFromReleaseYear = async (year: number): Promise<MovieData[]> => {
 };
 
 const saveNewMovies = (movies: MovieData[]) => {
-  const filepath = path.resolve('.', 'movies.json');
-  if (!fs.existsSync(filepath)) {
-    fs.writeFileSync(filepath, '[]');
-  }
-
-  const contents = fs.readFileSync(filepath, 'utf-8');
-  const data = JSON.parse(contents) as MovieData[];
+  const data = loadMovieData();
 
   const existingIds = data.map((movie) => movie.id);
   const newMovies = movies.filter((movie) => !existingIds.includes(movie.id));
@@ -111,7 +100,7 @@ const saveNewMovies = (movies: MovieData[]) => {
     data.push(movie);
   });
 
-  fs.writeFileSync(filepath, JSON.stringify(data, null, 2));
+  saveMovieData(data);
 };
 
 const run = async () => {
