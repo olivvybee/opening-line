@@ -1,0 +1,19 @@
+{
+  "name": "opening-line",
+  "version": "1.0.0",
+  "description": "A fedi bot that posts the opening lines of movies.",
+  "main": "index.js",
+  "scripts": {
+    "find-movies": "tsx ./findMovies.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@types/inquirer": "^9.0.7",
+    "dotenv": "^16.4.5",
+    "inquirer": "^9.2.15",
+    "tsx": "^4.7.1",
+    "typescript": "^5.4.2"
+  }
+}
