@@ -4,7 +4,8 @@
   "description": "A fedi bot that posts the opening lines of movies.",
   "main": "index.js",
   "scripts": {
-    "find-movies": "tsx ./findMovies.ts"
+    "find-movies": "tsx ./findMovies.ts",
+    "get-subtitles": "tsx ./getSubtitles.ts"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +14,7 @@
     "@types/inquirer": "^9.0.7",
     "dotenv": "^16.4.5",
     "inquirer": "^9.2.15",
+    "srt-parser-2": "^1.2.3",
     "tsx": "^4.7.1",
     "typescript": "^5.4.2"
   }

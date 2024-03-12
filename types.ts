@@ -4,3 +4,10 @@ export interface MovieData {
   year: number;
   processed: boolean;
 }
+
+export interface Entry {
+  openingLine: string;
+  movie: string;
+  year: number;
+  url: string;
+}
