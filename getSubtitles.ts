@@ -110,8 +110,16 @@ const getOpeningLine = async (subtitles: Line[]) => {
   const choices = subtitles
     .map((line) => line.text)
     .filter((text) => !(text.startsWith('[') && text.endsWith(']')))
-    .slice(0, 15)
-    .map((text) => text.replace(/\n/g, ' ').replace(/<.+?>/g, ''));
+    .map((text) =>
+      text
+        .replace(/\n/g, ' ')
+        .replace(/<.+?>/g, '')
+        .replace(/\(.+?\)/g, '')
+        .replace(/\[.+?\]/g, '')
+        .trim()
+    )
+    .filter((text) => !!text)
+    .slice(0, 15);
 
   const { lines } = await inquirer.prompt([
     {
