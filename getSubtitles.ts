@@ -110,7 +110,7 @@ const getOpeningLine = async (subtitles: Line[]) => {
   const choices = subtitles
     .slice(0, 15)
     .map((line) => line.text)
-    .map((text) => text.replace(/\n[^-]/g, ' '));
+    .map((text) => text.replace(/\n/g, ' '));
 
   const { lines } = await inquirer.prompt([
     {
